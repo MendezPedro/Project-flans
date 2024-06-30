@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Flan
+from .models import Flan, ContactForm
 from django.http import HttpResponseRedirect
 from .forms import ContactFormForm
 
@@ -25,6 +25,7 @@ def contacto(request):
         form = ContactFormForm(request.POST)
 
         if form.is_valid():
+            contact_form = ContactForm.objects.create(**form.cleaned_data)
             return HttpResponseRedirect('/exito')
         
     else:
