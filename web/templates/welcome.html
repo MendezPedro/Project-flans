@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="welcome-banner bg-dark text-white m-5 p-5">
+        <h1>¡Bienvenido, {{ user.username }}!</h1>
+        <p>Nos alegra verte de nuevo. ¡Disfruta navegando por nuestro sitio!</p>
+    </div>
     {% include 'includes/card.html' %}
 {% endblock %}

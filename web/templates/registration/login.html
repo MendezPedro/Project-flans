@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container p-5">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="Ingresa el nombre de usuario" name="username">
+            <input type="text" placeholder="Ingrese la contraseña" name="password">
+            <button class="btn btn-primary" type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+{% endblock %}
