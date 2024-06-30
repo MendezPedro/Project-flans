@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Flan, ContactForm
 from django.http import HttpResponseRedirect
 from .forms import ContactFormForm, ContactFormModelForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def inicio(request):
@@ -11,13 +12,9 @@ def inicio(request):
 def about(request):
     return render(request, 'about.html')
 
-def welcome(request):
-    flanes_privados = Flan.objects.filter(is_private=True)
-    return render(request, 'welcome.html', context = {'flanes': flanes_privados})
-
 
 def login(request):
-    return redirect('account/login')
+    return redirect('accounts/login')
 
 def contacto(request):
 
@@ -35,5 +32,14 @@ def contacto(request):
 
     return render(request, 'contacto.html', context = {'form': form})
 
+
 def exito(request):
     return render(request, 'exito.html')
+
+@login_required
+def welcome(request):
+    flanes_privados = Flan.objects.filter(is_private=True)
+    return render(request, 'welcome.html', context = {'flanes': flanes_privados})
+
+
+
