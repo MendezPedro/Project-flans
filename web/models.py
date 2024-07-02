@@ -9,7 +9,7 @@ class Flan(models.Model):
     image_url = models.URLField()
     slug = models.SlugField()
     is_private = models.BooleanField()
-    #precio = models.IntegerField(blank=True, null=True)
+    precio = models.IntegerField(blank=True, null=True)
 
     def __str__(self)-> str:
         return self.name
@@ -23,3 +23,14 @@ class ContactForm(models.Model):
 
     def __str__(self)-> str:
         return self.customer_email
+    
+
+class Review(models.Model):
+    flan = models.ForeignKey('Flan', on_delete=models.CASCADE)
+    user_name = models.CharField(max_length=100)
+    rating = models.IntegerField()
+    comment = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.user_name} - {self.flan.name}'
