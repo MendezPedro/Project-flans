@@ -30,7 +30,7 @@
         <div class="text-end">
           <form  action="{% url 'logout' %}" method="post">
             {% csrf_token %}
-            <button class="btn btn-primary" type="submit">Cerrar sesión</button>
+            <button class="btn btn-danger" type="submit">Cerrar sesión</button>
           </form>
         </div>
         {% endif %}
