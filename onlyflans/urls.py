@@ -26,4 +26,7 @@ urlpatterns = [
     path('bienvenido/', views.welcome, name='bienvenido'), 
     path('contacto', views.contacto, name='contacto'), 
     path('exito/', views.exito, name='exito'), 
+
+    path('review/', views.review_view, name='review'),
+    path('review/success/', views.review_success_view, name='review_success'),
 ]
