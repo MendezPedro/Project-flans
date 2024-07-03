@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container m-5 p-5" style="background-color: #e9ecef; border-radius: 0.25rem;">
+        <h2>Dejar una Reseña</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary" type="submit">Enviar</button>
+        </form>
+    </div>
+{% endblock %}
