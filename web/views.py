@@ -63,6 +63,10 @@ def review_success_view(request):
     return render(request, 'review_success.html')
 
 
+def review_list(request):
+    reviews = Review.objects.all()
+    return render(request, 'review_list.html', {'reviews': reviews})
+
 
 @login_required
 def welcome(request):
