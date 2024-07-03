@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <a class="btn btn-primary p-3 m-5" href="/review">Crea tus propias Reviews</a>
+        <ul class="list-group">
+        {% for review in reviews %}
+            <li class="list-group-item p-3">
+                <h4>{{ review.flan }}</h4>
+                <p class="p-5 btn btn-success">{{ review.comment }}</p>
+                <p>Usuario: {{ review.user_name }}</p>
+                <p>Puntacion: {{ review.rating }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
